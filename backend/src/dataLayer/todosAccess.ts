@@ -29,7 +29,7 @@ export class TodosAccess {
 				KeyConditionExpression: 'userId = :userId',
 				ExpressionAttributeValues: {
 					':userId': userId
-				}
+				},
 			}).promise()
 
 		const items = result.Items

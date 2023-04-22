@@ -34,15 +34,6 @@ provider:
     # Enable API Gateway logs
     restApi: true
 
-  iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action:
-            - xray:PutTelemetryRecords
-            - xray:PutTraceSegments
-          Resource: '*'
-
 custom:
   documentation:
     api:
@@ -71,7 +62,7 @@ functions:
           path: todos
           cors: true
           authorizer: Auth
-    
+
     iamRoleStatements:
       - Effect: Allow
         Action:
@@ -86,7 +77,7 @@ functions:
           - xray:PutTraceSegments
         Resource:
           - '*'
-          
+
   # TODO: Configure this function -
   # Provide iamRoleStatements property. Decide the Actions and AWS Resource.
   # To refer to an AWS resource defined in the "Resources" section, you can use "Resource: !GetAtt <resource-name>.Arn"
